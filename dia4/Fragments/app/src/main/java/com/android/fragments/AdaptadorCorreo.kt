@@ -16,17 +16,17 @@ class AdaptadorCorreo (
     RecyclerView.Adapter<AdaptadorCorreo.CorreoViewHolder>()
 {
 
-        class CorreoViewHolder(val item : View): RecyclerView.ViewHolder(item)
-        {
-            val lblDe = item.findViewById(R.id.LblDe) as TextView
-            val lblAsunto = item.findViewById(R.id.LblAsunto) as TextView
+    class CorreoViewHolder(val item : View): RecyclerView.ViewHolder(item)
+    {
+        val lblDe = item.findViewById(R.id.LblDe) as TextView
+        val lblAsunto = item.findViewById(R.id.LblAsunto) as TextView
 
-            fun bindCorreo(correo: Correo)
-            {
-                lblDe.text = correo.de
-                lblAsunto.text = correo.asunto
-            }
+        fun bindCorreo(correo: Correo)
+        {
+            lblDe.text = correo.de
+            lblAsunto.text = correo.asunto
         }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CorreoViewHolder {
 
