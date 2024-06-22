@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class FragmentListado : Fragment() {
@@ -32,6 +33,8 @@ class FragmentListado : Fragment() {
 
         val adaptador = AdaptadorCorreo(datos)
         { listener?.onCorreoSeleccionado(it) }
+
+        listado.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
 
         listado.adapter = adaptador
     }
