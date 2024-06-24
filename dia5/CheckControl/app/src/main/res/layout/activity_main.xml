@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese primer valor"
+        android:inputType="numberSigned"
+        ></EditText>
+
+        <EditText
+            android:id="@+id/et2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese segundo valor"
+            android:inputType="numberSigned"
+            ></EditText>
+
+
+        <CheckBox
+            android:id="@+id/chksuma"
+            android:text="Sumar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ></CheckBox>
+
+        <CheckBox
+            android:id="@+id/chkresta"
+            android:text="Restar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ></CheckBox>
+
+        <Button
+            android:id="@+id/btnoperacion"
+            android:text="Operar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></Button>
+
+        <TextView
+            android:id="@+id/tvsuma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suma = "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvresta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resta = "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
