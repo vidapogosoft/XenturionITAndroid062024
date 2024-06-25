@@ -16,9 +16,8 @@
         ></item>
     <item
         android:id="@+id/action_opciones"
-        android:title="@string/action_opciones"
-        android:icon="@drawable/ic_buscar"
+        android:title="@string/action_acerca"
+        android:icon="@drawable/ic_launcher_foreground"
         app:showAsAction="ifRoom"
         ></item>
-
 </menu>

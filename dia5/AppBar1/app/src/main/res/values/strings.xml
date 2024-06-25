@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">AppBar1</string>
+    <string name="app_name">App Bar 1</string>
 
     <string name="action_buscar">Buscar</string>
     <string name="action_nuevo">Nuevo</string>
     <string name="action_opciones">Opciones</string>
+    <string name="action_acerca">Acerca de</string>
 </resources>
