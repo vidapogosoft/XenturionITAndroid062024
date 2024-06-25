@@ -60,12 +60,14 @@
             android:id="@+id/BtnCenterAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="withButtonCentered"
             android:text="Alerta con controles centrados"></Button>
 
         <Button
             android:id="@+id/BtnEditTextAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="withEditText"
             android:text="Alerta con control Edit Text"></Button>
 
 

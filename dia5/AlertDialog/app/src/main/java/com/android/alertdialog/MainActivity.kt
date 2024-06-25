@@ -11,8 +11,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.setPadding
 import java.util.Arrays
+import android.widget.LinearLayout
+import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -168,6 +169,53 @@ class MainActivity : AppCompatActivity() {
             setNegativeButton("Cancelar", NegativeButtonClick)
             show()
         }
+    }
+
+    fun withButtonCentered(view: View){
+
+        val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.setTitle("Tutulo de la Alerta")
+        alertDialog.setMessage("Alerta con acciones")
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "De Acuerdo")
+        {
+                dialog, wich -> dialog.dismiss()
+        }
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancelar")
+        {
+                dialog, wich -> dialog.dismiss()
+        }
+
+        alertDialog.show()
+
+        val btnPositiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+        val btnNegativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+
+        val layoutParameter = btnPositiveButton.layoutParams as LinearLayout.LayoutParams
+        layoutParameter.weight = 10f
+
+        btnPositiveButton.layoutParams = layoutParameter
+        btnNegativeButton.layoutParams = layoutParameter
+
+    }
+
+    fun withEditText(view: View){
+
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+
+        builder.setTitle("Inflater - Edit Text")
+
+        val dialogLayout = inflater.inflate(R.layout.alert_dialog_with_edittext, null)
+        val editText = dialogLayout.findViewById<EditText>(R.id.editText)
+
+        builder.setView(dialogLayout)
+        builder.setPositiveButton("De Acuerdo")
+        {
+                dialogInterface, i -> Toast.makeText(applicationContext, "EditText is ${editText.text}", Toast.LENGTH_SHORT).show()
+        }
+        builder.show()
     }
 
 
