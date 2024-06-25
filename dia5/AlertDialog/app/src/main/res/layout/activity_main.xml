@@ -24,12 +24,14 @@
             android:id="@+id/BtnIconAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="IconAlert"
             android:text="Alerta con icono"></Button>
 
         <Button
             android:id="@+id/BtnItemsAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="ItemsAlert"
             android:text="Alerta con items"></Button>
 
         <Button
