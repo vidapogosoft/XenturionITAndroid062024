@@ -38,18 +38,21 @@
             android:id="@+id/BtnMultiChoiceAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="ChoiceAlert"
             android:text="Alerta con multi choice"></Button>
 
         <Button
             android:id="@+id/BtnStyleAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="StyleAlert"
             android:text="Alerta con Style"></Button>
 
         <Button
             android:id="@+id/BtnStyleCustomAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="CustomStyleAlert"
             android:text="Alerta con Style Custom"></Button>
 
 

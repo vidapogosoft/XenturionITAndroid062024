@@ -3,6 +3,7 @@ package com.android.alertdialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.setPadding
+import java.util.Arrays
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,5 +101,74 @@ class MainActivity : AppCompatActivity() {
             show()
         }
     }
+
+    fun ChoiceAlert(view: View)
+    {
+        val items = arrayOf("Android", "Swift","Flutter","Xamarin","Net Maui","React Native")
+
+        val SelectedList = ArrayList<Int>()
+
+        var builder = AlertDialog.Builder(this)
+
+        builder.setTitle("Lista de opción multiple")
+        builder.setMultiChoiceItems(items, null)
+        { dialog, wich, isCheked ->
+            if(isCheked)
+            {
+                SelectedList.add(wich)
+            }
+            else if(SelectedList.contains(wich))
+            {
+                SelectedList.remove( Integer.valueOf(wich) )
+            }
+        }
+
+        builder.setPositiveButton("Aceptar")
+        { dialogInterface, i ->
+
+            val selectedString = ArrayList<String>()
+
+            for(j in SelectedList.indices)
+            {
+                selectedString.add(items[SelectedList[j]])
+            }
+
+            Toast.makeText(applicationContext, "Items seleccionados: "
+                    + Arrays.toString(selectedString.toTypedArray()), Toast.LENGTH_LONG).show()
+
+        }
+
+        builder.show()
+
+    }
+
+    fun StyleAlert(view: View)
+    {
+        var builder = AlertDialog.Builder(ContextThemeWrapper(this, android.R.style.Holo_SegmentedButton))
+
+        with(builder)
+        {
+            setTitle("Android Alert con style de android theme")
+            setMessage("Nueva alerta")
+            setPositiveButton("OK", DialogInterface.OnClickListener(function = PositiveButtonClick))
+            setNegativeButton("Cancelar", NegativeButtonClick)
+            show()
+        }
+    }
+
+    fun CustomStyleAlert(view: View)
+    {
+        var builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
+
+        with(builder)
+        {
+            setTitle("Android Alert con style custom")
+            setMessage("Nueva alerta")
+            setPositiveButton("OK", DialogInterface.OnClickListener(function = PositiveButtonClick))
+            setNegativeButton("Cancelar", NegativeButtonClick)
+            show()
+        }
+    }
+
 
 }
