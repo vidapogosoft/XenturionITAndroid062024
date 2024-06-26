@@ -2,8 +2,10 @@ package com.android.sqlite
 
 import android.content.ContentValues
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val Descrip = findViewById<EditText>(R.id.descripcion)
         val Precio = findViewById<EditText>(R.id.precio)
         val Result = findViewById<TextView>(R.id.Resultado)
-
+        val spestado = findViewById<Spinner>(R.id.spestado)
         val Add = findViewById<Button>(R.id.BtnGrabar)
         val Upd = findViewById<Button>(R.id.BtnUpd)
         val Del = findViewById<Button>(R.id.BtnDel)
@@ -85,12 +87,16 @@ class MainActivity : AppCompatActivity() {
             val admin = AdminSQLite(this, "productos", null, 1)
             val bd = admin.writableDatabase
 
+            val ListaEstados = arrayOf("ACTIVO", "INACTIVO")
+            val adaptador = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ListaEstados)
+            spestado.adapter = adaptador
+
             val registro = ContentValues()
 
             registro.put("codigo_principal", CodPrinc.getText().toString())
             registro.put("descripcion", Descrip.getText().toString())
             registro.put("precio", Precio.getText().toString())
-            registro.put("estado", "ACTIVO")
+            registro.put("estado", spestado.selectedItem.toString())
 
             val save = bd.insert("productos", null, registro)
             bd.close()
