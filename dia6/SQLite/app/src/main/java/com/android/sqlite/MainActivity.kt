@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             val admin = AdminSQLite(this, "productos", null, 1)
             val bd = admin.writableDatabase
 
-            var fila = bd.rawQuery("select descripcion, precio, codigo_principal, estado from productos where codigo_principal = ${CodPrinc.text.toString()}", null)
+            var fila = bd.rawQuery("select descripcion, precio, codigo_principal, estado from productos where codigo_principal = ${"'"+CodPrinc.text.toString()+"'"}", null)
 
             if(fila.moveToFirst())
             {
