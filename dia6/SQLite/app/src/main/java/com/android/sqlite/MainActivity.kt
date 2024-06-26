@@ -39,15 +39,15 @@ class MainActivity : AppCompatActivity() {
             val admin = AdminSQLite(this, "productos", null, 1)
             val bd = admin.writableDatabase
 
-            var fila = bd.rawQuery("select codigo_principal, descripcion, precio, estado from productos where codigo_principal = ${CodPrinc.text.toString()}", null)
+            var fila = bd.rawQuery("select descripcion, precio, codigo_principal, estado from productos where codigo_principal = ${CodPrinc.text.toString()}", null)
 
             if(fila.moveToFirst())
             {
 
-                CodPrinc.setText(fila.getString(0))
-                Descrip.setText(fila.getString(1))
-                Precio.setText(fila.getString(2))
-
+                //CodPrinc.setText(fila.getString(0))
+                Descrip.setText(fila.getString(0))
+                Precio.setText(fila.getString(1))
+                Result.setText(fila.getString(2))
             }
             else{
                 Result.setText("No existen registros para el codigo: " + "-" + CodPrinc.getText().toString())
