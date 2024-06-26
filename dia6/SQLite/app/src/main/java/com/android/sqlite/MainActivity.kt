@@ -110,5 +110,46 @@ class MainActivity : AppCompatActivity() {
             Precio.setText("")
         }
 
+        Upd.setOnClickListener {
+
+            val admin = AdminSQLite(this, "productos", null, 1)
+            val bd = admin.writableDatabase
+
+            val registro = ContentValues()
+
+            registro.put("descripcion", Descrip.getText().toString())
+            registro.put("precio", Precio.getText().toString())
+
+            val up = bd.update("productos", registro, "codigo_principal = ${"'"+CodPrinc.text.toString()+"'"}", null )
+
+            if (up > 0)
+            {
+                Result.setText(Descrip.getText())
+                Toast.makeText(this, "Registro Actualizado: " + CodPrinc.getText(), Toast.LENGTH_LONG)
+            }
+
+        }
+
+        Del.setOnClickListener {
+
+            val admin = AdminSQLite(this, "productos", null, 1)
+            val bd = admin.writableDatabase
+
+
+            val del = bd.delete("productos", "codigo_principal = ${"'"+CodPrinc.text.toString()+"'"}", null )
+
+            if (del > 0)
+            {
+                Result.setText(Descrip.getText())
+                Toast.makeText(this, "Registro Borrado: " + CodPrinc.getText(), Toast.LENGTH_LONG)
+            }
+
+
+            CodPrinc.setText("")
+            Descrip.setText("")
+            Precio.setText("")
+
+        }
+
     }
 }
