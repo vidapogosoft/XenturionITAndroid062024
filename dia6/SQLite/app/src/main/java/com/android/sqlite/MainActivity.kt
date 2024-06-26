@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
             val admin = AdminSQLite(this, "productos", null, 1)
             val bd = admin.writableDatabase
-            
+
             val registro = ContentValues()
 
             registro.put("codigo_principal", CodPrinc.getText().toString())
