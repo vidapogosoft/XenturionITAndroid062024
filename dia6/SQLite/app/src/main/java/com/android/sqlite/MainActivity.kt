@@ -36,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         val Cons = findViewById<Button>(R.id.BtnCons)
         val ConsDesc = findViewById<Button>(R.id.BtnConsDesc)
 
+
+        val ListaEstados = arrayOf("ACTIVO", "INACTIVO")
+        val adaptador = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ListaEstados)
+        spestado.adapter = adaptador
+
         Cons.setOnClickListener {
 
             val admin = AdminSQLite(this, "productos", null, 1)
@@ -86,11 +91,7 @@ class MainActivity : AppCompatActivity() {
 
             val admin = AdminSQLite(this, "productos", null, 1)
             val bd = admin.writableDatabase
-
-            val ListaEstados = arrayOf("ACTIVO", "INACTIVO")
-            val adaptador = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ListaEstados)
-            spestado.adapter = adaptador
-
+            
             val registro = ContentValues()
 
             registro.put("codigo_principal", CodPrinc.getText().toString())
