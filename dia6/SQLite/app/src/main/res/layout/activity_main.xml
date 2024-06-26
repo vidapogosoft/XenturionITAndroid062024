@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/codigo_principal"
+            android:hint="codigo principal del producto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></EditText>
+
+        <EditText
+            android:id="@+id/descripcion"
+            android:hint="descripcion del producto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></EditText>
+
+
+        <EditText
+            android:id="@+id/precio"
+            android:hint="precio producto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></EditText>
+
+
+        <Spinner
+            android:paddingTop="10dp"
+            android:id="@+id/spestado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+        <TextView
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/Resultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+    <LinearLayout
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/BtnGrabar"
+            android:text="Grabar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:id="@+id/BtnUpd"
+            android:text="Editar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:id="@+id/BtnDel"
+            android:text="Eliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:id="@+id/BtnCons"
+            android:text="Comnsultar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Button>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
