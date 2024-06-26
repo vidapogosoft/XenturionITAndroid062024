@@ -72,10 +72,15 @@
 
         <Button
             android:id="@+id/BtnCons"
-            android:text="Comnsultar"
+            android:text="Consultar Por Cod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></Button>
 
+        <Button
+            android:id="@+id/BtnConsDesc"
+            android:text="Consultar Por Descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Button>
     </LinearLayout>
 
     </LinearLayout>
