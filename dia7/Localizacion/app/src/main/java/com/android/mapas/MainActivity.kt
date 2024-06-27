@@ -12,14 +12,24 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+import com.google.android.gms.location.LocationServices
+
 import android.Manifest
+import android.location.Location
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.Priority
+import com.google.android.gms.tasks.CancellationToken
+import com.google.android.gms.tasks.CancellationTokenSource
+import com.google.android.gms.tasks.OnTokenCanceledListener
 
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback  {
 
     private lateinit var map : GoogleMap
+    private lateinit var Lat : TextView
+    private lateinit var Long : TextView
 
     companion object {
         const val REQUEST_CODE_LOCATION = 0
@@ -28,6 +38,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Lat  = findViewById<TextView>(R.id.Lat)
+        Long = findViewById<TextView>(R.id.Long)
 
         createMapFragment()
     }
@@ -42,18 +55,30 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback  {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        createMarkerPin()
+
         enableMyLocation()
     }
 
     private fun createMarkerPin(){
-        val place = LatLng(-2.1336456,-79.9045489)
-        map.addMarker(MarkerOptions().position(place).title("Desde donde dicto el curso"))
-        map.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(place, 20f),
-            4000,
-            null
-        )
+        //val place = LatLng(-2.1336456,-79.9045489)
+
+        if(Lat.text.toString() != "" && Long.text.toString() != "")
+        {
+            val latitudeString = Lat.text.toString()
+            val latitudeDouble: Double = latitudeString.toDouble()
+            val longitudeString = Long.text.toString()
+            val longitudeDouble: Double = longitudeString.toDouble()
+
+            // se pinta en el mapa
+            val place = LatLng(latitudeDouble,longitudeDouble)
+            map.addMarker(MarkerOptions().position(place).title("Desde donde dicto el curso"))
+            map.animateCamera(
+                CameraUpdateFactory.newLatLngZoom(place, 20f),
+                4000,
+                null
+            )
+        }
+
     }
 
     private fun enableMyLocation(){
@@ -74,6 +99,25 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback  {
             }
 
             map.isMyLocationEnabled = true
+
+            val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+            fusedLocationProviderClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, object : CancellationToken() {
+                override fun onCanceledRequested(p0: OnTokenCanceledListener) = CancellationTokenSource().token
+
+                override fun isCancellationRequested() = false
+            })
+                .addOnSuccessListener { location: Location ->
+                    if (location != null) {
+                        val latitude = location.latitude
+                        val longitude = location.longitude
+
+                        Lat.setText(latitude.toString())
+                        Long.setText(longitude.toString())
+
+                        createMarkerPin()
+                    }
+                }
         }
         else{ // llamara request permision
 
