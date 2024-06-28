@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tool Bar Snack</string>
+    <string name="action_buscar">Buscar</string>
+    <string name="action_nuevo">Nuevo</string>
+    <string name="action_opciones">Opciones</string>
+    <string name="action_1">Accion 1</string>
+    <string name="action_2">Accion 2</string>
+    <string name="Titulo">Titulo largo appbar</string>
+    <string name="Subtitulo">Subtitulo appbar</string>
+</resources>
