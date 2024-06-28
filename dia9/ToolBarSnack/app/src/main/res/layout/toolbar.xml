@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="128dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -17,7 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingBottom="16dp"
-        tools:ignore="MissingConstraints">
+        >
 
         <TextView
             android:id="@+id/LblArticulo"
@@ -37,4 +36,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.Toolbar>
