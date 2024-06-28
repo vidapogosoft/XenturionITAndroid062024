@@ -17,9 +17,9 @@
         android:id="@+id/card_view_1"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:cardCornerRadius="4dp"
-        android:layout_margin="8dp"
         android:layout_gravity="center"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="4dp"
         app:cardUseCompatPadding="true">
 
         <androidx.appcompat.widget.Toolbar
@@ -28,8 +28,7 @@
             android:layout_height="?attr/actionBarSize"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            >
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         </androidx.appcompat.widget.Toolbar>
 

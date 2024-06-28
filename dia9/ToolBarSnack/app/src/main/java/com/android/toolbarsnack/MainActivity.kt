@@ -13,6 +13,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val tbar = findViewById<Toolbar>(R.id.appbar1)
+        setSupportActionBar(tbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val tbcard = findViewById<Toolbar>(R.id.tbCard)
+        tbcard.title = "Mi Tarjeta"
+        tbcard.inflateMenu(R.menu.menu_tarjetas)
+
 
     }
 }
